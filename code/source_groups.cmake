@@ -683,6 +683,14 @@ if(WIN32)
 	)
 endif()
 
+if(APPLE)
+	add_file_folder("HeadTracking"
+		${file_root_headtracking}
+		headtracking/opentrack.h
+		headtracking/opentrack.cpp
+	)
+endif()
+
 # Hud files
 add_file_folder("Hud"
 	hud/hud.cpp

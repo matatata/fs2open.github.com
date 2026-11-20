@@ -7,6 +7,10 @@
 #include "headtracking/freetrack.h"
 #endif
 
+#ifdef HAVE_OPENTRACKCLIENT_LIBRARY
+#include "headtracking/opentrack.h"
+#endif
+
 #include <memory>
 
 namespace headtracking
@@ -49,6 +53,14 @@ namespace headtracking
 		if (freetrack)
 		{
 			currentProvider = std::move(freetrack);
+			return true;
+		}
+#endif
+#ifdef HAVE_OPENTRACKCLIENT_LIBRARY
+		auto opentrack = initProvider<opentrack::OpenTrackProvider>();
+		if (opentrack)
+		{
+			currentProvider = std::move(opentrack);
 			return true;
 		}
 #endif

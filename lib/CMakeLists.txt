@@ -64,6 +64,8 @@ if (FSO_BUILD_WITH_VULKAN AND FSO_BUILD_WITH_FFX)
 	endif()
 endif()
 
+include(opentrackclient.cmake)
+
 add_subdirectory(mdns)
 
 add_subdirectory(accidental-noise)
